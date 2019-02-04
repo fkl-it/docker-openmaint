@@ -1,7 +1,11 @@
+ ## This compose file is persisting data on /pgdata
+
 version: '2'
 services:
   postgis:    
     image: kpettijohn/postgis:9.4 #mdillon/postgis:9.5
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
     ports:
       - "5555:5432"
     environment:
